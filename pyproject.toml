@@ -1,0 +1,25 @@
+[project]
+name = "ter-send"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Asempere", email = "asempere158@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "cantools>=43.0.0",
+    "textual>=8.2.8",
+]
+
+[project.scripts]
+ter-send = "ter_send:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pyinstaller>=6.22.2",
+]
