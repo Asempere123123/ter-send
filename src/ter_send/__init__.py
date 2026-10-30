@@ -192,7 +192,12 @@ class MessageBuilderScreen(Screen[None]):
                 return
 
         hex_payload = payload.hex().upper()
-        frame_id_hex = f"{self.message.frame_id:03X}"
+
+        if self.message.is_extended_frame:
+            frame_id_hex = f"{self.message.frame_id:08X}"
+        else:
+            frame_id_hex = f"{self.message.frame_id:03X}"
+
         cansend_cmd = f"cansend {CAN_IF} {frame_id_hex}#{hex_payload}"
 
         try:
